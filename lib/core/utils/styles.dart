@@ -10,4 +10,16 @@ abstract class Styles {
     fontSize: 18.sp,
     fontWeight: FontWeight.w600,
   );
+  static TextStyle font32normal = TextStyle(
+    fontSize: 32.sp,
+    fontWeight: FontWeight.normal,
+  );
+  static TextStyle font14normal = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.normal,
+  );
+  static TextStyle font14bold = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.bold,
+  );
 }

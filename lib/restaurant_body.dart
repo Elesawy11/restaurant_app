@@ -12,7 +12,12 @@ class RestaurantBody extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
-        theme: ThemeData.dark(),
+        theme: ThemeData.dark().copyWith(
+          textTheme: ThemeData.dark().textTheme.apply(
+            bodyColor: Colors.white,
+            displayColor: Colors.white,
+          ),
+        ),
 
         debugShowCheckedModeBanner: false,
         home: const StartView(),
