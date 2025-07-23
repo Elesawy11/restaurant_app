@@ -1,10 +1,10 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant_app/core/utils/spacer.dart';
 import 'package:restaurant_app/core/widgets/custom_elevated_button.dart';
-import '../../../core/utils/styles.dart';
-import 'widget/custom_login_text_field_widget.dart';
+import 'widget/auth_header_widget.dart';
+import 'widget/auth_text_widget.dart';
+import 'widget/custom_auth_text_field_widget.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -22,17 +22,12 @@ class LoginView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 verticalSpace(40.h),
-                Text('Welcome Back!', style: Styles.font32normal),
-                verticalSpace(4.h),
-                Text(
-                  'Please login to your account',
-                  style: Styles.font14normal,
+                const AuthHeaderWidget(
+                  title: 'Welcome Back!',
+                  subtitle: 'Please login to your account',
                 ),
-
                 verticalSpace(40),
-                const Expanded(
-                  child: Form(child: CustomLoginTextFieldWidget()),
-                ),
+                const Expanded(child: Form(child: CustomAuthTextFieldWidget())),
                 verticalSpace(20.h),
                 CustomElevatedButton(
                   padding: EdgeInsets.symmetric(
@@ -46,22 +41,9 @@ class LoginView extends StatelessWidget {
                 ),
 
                 verticalSpace(18),
-                RichText(
-                  text: TextSpan(
-                    text: 'Don\'t have an account? ',
-                    style: Styles.font14normal.copyWith(color: Colors.white),
-                    children: [
-                      TextSpan(
-                        text: 'Sign Up',
-                        style: Styles.font14bold.copyWith(color: Colors.blue),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            // Navigate to sign up view
-                            // context.push('/sign-up');
-                          },
-                      ),
-                    ],
-                  ),
+                const AuthTextWidget(
+                  text: 'Don\'t have an account? ',
+                  methodName: 'Sign Up',
                 ),
                 verticalSpace(20.h),
               ],
