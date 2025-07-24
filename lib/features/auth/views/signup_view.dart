@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant_app/core/utils/navigation.dart';
+import 'package:restaurant_app/features/home/views/home_view.dart';
 import '../../../core/utils/spacer.dart';
 import '../../../core/widgets/custom_elevated_button.dart';
-import 'login_view.dart';
 import 'widget/auth_header_widget.dart';
 import 'widget/auth_text_widget.dart';
 import 'widget/custom_auth_text_field_widget.dart';
@@ -38,6 +38,7 @@ class SignupView extends StatelessWidget {
                   ),
                   text: 'Sign Up',
                   onPressed: () {
+                    context.pushAndRemoveUntil(const HomeView());
                     // Handle login action
                   },
                 ),
