@@ -7,10 +7,11 @@ class AuthTextWidget extends StatelessWidget {
   const AuthTextWidget({
     super.key,
     required this.text,
-    required this.methodName,
+    required this.methodName, this.onTap,
   });
   final String text;
   final String methodName;
+  final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
     return RichText(
@@ -22,10 +23,7 @@ class AuthTextWidget extends StatelessWidget {
             text: methodName,
             style: Styles.font14bold.copyWith(color: Colors.blue),
             recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                // Navigate to sign up view
-                // context.push('/sign-up');
-              },
+              ..onTap = onTap,
           ),
         ],
       ),

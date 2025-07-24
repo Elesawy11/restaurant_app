@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant_app/core/utils/navigation.dart';
-import 'package:restaurant_app/core/utils/spacer.dart';
-import 'package:restaurant_app/core/widgets/custom_elevated_button.dart';
-import 'package:restaurant_app/features/auth/views/signup_view.dart';
+import '../../../core/utils/spacer.dart';
+import '../../../core/widgets/custom_elevated_button.dart';
+import 'login_view.dart';
 import 'widget/auth_header_widget.dart';
 import 'widget/auth_text_widget.dart';
 import 'widget/custom_auth_text_field_widget.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class SignupView extends StatelessWidget {
+  const SignupView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +25,8 @@ class LoginView extends StatelessWidget {
               children: [
                 verticalSpace(40),
                 const AuthHeaderWidget(
-                  title: 'Welcome Back!',
-                  subtitle: 'Please login to your account',
+                  title: 'Create a new Account',
+                  subtitle: 'Please fill in the details below',
                 ),
                 verticalSpace(40),
                 const Expanded(child: Form(child: CustomAuthTextFieldWidget())),
@@ -36,7 +36,7 @@ class LoginView extends StatelessWidget {
                     horizontal: 60.w,
                     vertical: 10.h,
                   ),
-                  text: 'Login',
+                  text: 'Sign Up',
                   onPressed: () {
                     // Handle login action
                   },
@@ -44,9 +44,9 @@ class LoginView extends StatelessWidget {
 
                 verticalSpace(18),
                 AuthTextWidget(
-                  text: 'Don\'t have an account? ',
-                  methodName: 'Sign Up',
-                  onTap: () => context.push(const SignupView()),
+                  onTap: () => context.pop(),
+                  text: 'Have an account? ',
+                  methodName: 'Login',
                 ),
                 verticalSpace(20),
               ],
