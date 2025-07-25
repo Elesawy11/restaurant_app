@@ -23,7 +23,7 @@ class MyCartPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
-                    'Price',
+                    'Total Price',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18,

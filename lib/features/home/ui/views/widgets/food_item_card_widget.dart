@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:restaurant_app/features/home/data/models/cart_item.dart';
 import 'package:restaurant_app/features/home/data/models/item_model.dart';
-import 'package:restaurant_app/features/home/ui/cubits/add_cart_item_cubit/add_cart_item_cubit.dart';
-import 'package:restaurant_app/features/home/ui/cubits/get_cart_item.dart/get_cart_tem_cubit.dart';
-
 import '../../../../../core/utils/color_manager.dart';
 import '../../../../../core/utils/spacer.dart';
 import '../../../../../core/utils/styles.dart';
+import 'add_cart_item_bloc_listener.dart';
 
 class FoodItemCardWidget extends StatelessWidget {
   const FoodItemCardWidget({super.key, required this.item});
@@ -51,7 +47,6 @@ class FoodItemCardWidget extends StatelessWidget {
             ),
           ),
           horizontalSpace(16),
-
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,8 +56,6 @@ class FoodItemCardWidget extends StatelessWidget {
                   style: Styles.font18W600.copyWith(color: Colors.white),
                 ),
                 verticalSpace(8),
-
-                // Price
                 Text(
                   '₹ ${item.price}',
                   style: const TextStyle(
@@ -74,39 +67,7 @@ class FoodItemCardWidget extends StatelessWidget {
               ],
             ),
           ),
-          BlocListener<AddCartItemCubit, AddCartItemState>(
-            listener: (context, state) {
-              if (state is AddCartItemError) {
-                ScaffoldMessenger.of(
-                  context,
-                ).showSnackBar(SnackBar(content: Text(state.errorMessage)));
-              }
-            },
-            child: InkWell(
-              onTap: () {
-                context.read<AddCartItemCubit>().addItemToCart(
-                  item: CartItem(
-                    id: item.id,
-                    name: item.name,
-                    price: item.price,
-                    imageUrl: item.image,
-                    quantity: 1,
-                  ),
-                  list: context.read<GetCartITemCubit>().cartItems,
-                );
-              },
-              child: Container(
-                width: 28.r,
-                height: 28.r,
-                decoration: BoxDecoration(
-                  color: Colors.transparent,
-                  border: Border.all(color: Colors.white54, width: 2),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Icon(Icons.add, color: Colors.white, size: 18.r),
-              ),
-            ),
-          ),
+          AddCartITemBlocListener(item: item),
         ],
       ),
     );

@@ -1,13 +1,10 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant_app/core/utils/styles.dart';
-import 'package:restaurant_app/features/home/data/models/item_model.dart';
 import 'package:restaurant_app/features/home/ui/constant.dart';
 import 'package:restaurant_app/features/home/ui/cubits/get_cart_item.dart/get_cart_tem_cubit.dart';
 import 'package:restaurant_app/features/home/ui/cubits/get_items_cubit/get_items_cubit.dart';
-import 'package:uuid/uuid.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -33,23 +30,23 @@ class _HomeViewState extends State<HomeView> {
         BlocProvider(create: (context) => GetCartITemCubit()..getCartItems()),
       ],
       child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () async {
-            final id = const Uuid().v4();
-            FirebaseFirestore.instance
-                .collection('items')
-                .doc(id)
-                .set(
-                  ItemModel(
-                    id: id,
-                    name: 'item7',
-                    price: 350,
-                    image:
-                        'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=300&h=300&fit=crop',
-                  ).toJson(),
-                );
-          },
-        ),
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: () async {
+        //     final id = const Uuid().v4();
+        //     FirebaseFirestore.instance
+        //         .collection('items')
+        //         .doc(id)
+        //         .set(
+        //           ItemModel(
+        //             id: id,
+        //             name: 'item7',
+        //             price: 350,
+        //             image:
+        //                 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=300&h=300&fit=crop',
+        //           ).toJson(),
+        //         );
+        //   },
+        // ),
         appBar: AppBar(
           title: Text('Welcome !!', style: Styles.font14bold),
           backgroundColor: Colors.black54,

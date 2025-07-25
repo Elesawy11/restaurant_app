@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:restaurant_app/features/home/ui/cubits/add_cart_item_cubit/add_cart_item_cubit.dart';
 import 'package:restaurant_app/features/home/ui/cubits/get_items_cubit/get_items_cubit.dart';
-
 import '../../../../../core/utils/spacer.dart';
 import '../../../../../core/utils/styles.dart';
 import 'food_item_card_widget.dart';
