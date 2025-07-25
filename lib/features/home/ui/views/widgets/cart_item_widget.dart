@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:restaurant_app/features/home/ui/cubits/cart_item_edit_cubit/cart_item_edit_cubit.dart';
 import '../../../../../core/utils/spacer.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../data/models/cart_item.dart';
@@ -7,19 +9,12 @@ import 'cart_item_image_widget.dart';
 import 'custom_decrease_and_increase_widget.dart';
 
 class CartItemWidget extends StatelessWidget {
-  const CartItemWidget({
-    super.key,
-    required this.item,
-    this.decreaseQuantity,
-    this.increaseQuantity,
-    this.removeItem,
-  });
+  const CartItemWidget({super.key, required this.item});
   final CartItem item;
-  final void decreaseQuantity;
-  final void increaseQuantity;
-  final void removeItem;
+
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<CartItemEditCubit>();
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
       padding: const EdgeInsets.all(12),
@@ -47,7 +42,7 @@ class CartItemWidget extends StatelessWidget {
                       ),
                     ),
                     IconButton(
-                      onPressed: () => removeItem,
+                      onPressed: () => cubit.removeItem(id: item.id),
                       icon: Icon(
                         Icons.delete_outline,
                         color: Colors.red[400],
@@ -66,11 +61,7 @@ class CartItemWidget extends StatelessWidget {
                       style: Styles.font14bold,
                     ),
 
-                    CustomDecreaseAndIncreaseWidget(
-                      decreaseQuantity: () => decreaseQuantity,
-                      item: item,
-                      increaseQuantity: () => increaseQuantity,
-                    ),
+                    CustomDecreaseAndIncreaseWidget(item: item),
                   ],
                 ),
               ],

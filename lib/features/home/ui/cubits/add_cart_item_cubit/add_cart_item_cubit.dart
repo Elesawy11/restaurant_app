@@ -17,7 +17,7 @@ class AddCartItemCubit extends Cubit<AddCartItemState> {
       if (list.any((itemList) => item.id == itemList.id)) {
         emit(AddCartItemError('Item already exists in the cart'));
       } else {
-        await firestore.collection('itemCart').add(item.toJson());
+        await firestore.collection('itemCart').doc(item.id).set(item.toJson());
         emit(AddCartItemSuccess());
       }
     } catch (e) {

@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../data/models/cart_item.dart';
+import '../../cubits/cart_item_edit_cubit/cart_item_edit_cubit.dart';
 
 class CustomDecreaseAndIncreaseWidget extends StatelessWidget {
-  const CustomDecreaseAndIncreaseWidget({
-    super.key,
-    required this.decreaseQuantity,
-    required this.item,
-    required this.increaseQuantity,
-  });
+  const CustomDecreaseAndIncreaseWidget({super.key, required this.item});
 
-  final VoidCallback? decreaseQuantity;
   final CartItem item;
-  final VoidCallback? increaseQuantity;
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<CartItemEditCubit>();
     return Container(
       decoration: BoxDecoration(
         color: Colors.grey[800],
@@ -24,7 +20,7 @@ class CustomDecreaseAndIncreaseWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           IconButton(
-            onPressed: () => decreaseQuantity,
+            onPressed: () => cubit.decreaseQuantity(item: item),
             icon: const Icon(Icons.remove, color: Colors.white, size: 18),
             constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
             padding: EdgeInsets.zero,
@@ -41,7 +37,7 @@ class CustomDecreaseAndIncreaseWidget extends StatelessWidget {
             ),
           ),
           IconButton(
-            onPressed: () => increaseQuantity,
+            onPressed: () => cubit.increaseQuantity(item: item),
             icon: const Icon(Icons.add, color: Colors.white, size: 18),
             constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
             padding: EdgeInsets.zero,
