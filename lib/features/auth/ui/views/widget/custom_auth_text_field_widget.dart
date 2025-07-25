@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../../core/utils/app_regex.dart';
 import '../../../../../core/utils/spacer.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
 
@@ -21,8 +22,11 @@ class CustomAuthTextFieldWidget extends StatelessWidget {
           validator: (value) {
             if (value == null || value.isEmpty) {
               return 'Please enter your email';
+            } else if (!AppRegex.isEmailValid(value)) {
+              return 'Please enter a valid email';
+            } else {
+              return null;
             }
-            return null;
           },
         ),
         verticalSpace(18),
