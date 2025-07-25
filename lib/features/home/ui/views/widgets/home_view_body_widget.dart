@@ -18,37 +18,34 @@ class HomeViewBodyWidget extends StatelessWidget {
         Text('menu items: ', style: Styles.font18W600),
         verticalSpace(16),
         Expanded(
-          child: BlocProvider(
-            create: (context) => GetItemsCubit()..getItems(),
-            child: BlocBuilder<GetItemsCubit, GetItemsState>(
-              builder: (context, state) {
-                return state is GetItemsSuccess
-                    ? ListView.builder(
-                        itemCount: state.items.length,
-                        itemBuilder: (context, index) {
-                          return BlocProvider(
-                            create: (context) => AddCartItemCubit(),
-                            child: FoodItemCardWidget(
-                              item: state.items[index],
-                              
-                            ),
-                          );
-                        },
-                      )
-                    : state is GetItemsLoading
-                    ? const Center(child: CircularProgressIndicator())
-                    : state is GetItemsError
-                    ? Center(
-                        child: Text(
-                          state.errorMessage,
-                          style: Styles.font14bold,
-                        ),
-                      )
-                    : Center(
-                        child: Text('No items found', style: Styles.font14bold),
-                      );
-              },
-            ),
+          child: BlocBuilder<GetItemsCubit, GetItemsState>(
+            builder: (context, state) {
+              return state is GetItemsSuccess
+                  ? ListView.builder(
+                      itemCount: state.items.length,
+                      itemBuilder: (context, index) {
+                        return BlocProvider(
+                          create: (context) => AddCartItemCubit(),
+                          child: FoodItemCardWidget(
+                            item: state.items[index],
+                            
+                          ),
+                        );
+                      },
+                    )
+                  : state is GetItemsLoading
+                  ? const Center(child: CircularProgressIndicator())
+                  : state is GetItemsError
+                  ? Center(
+                      child: Text(
+                        state.errorMessage,
+                        style: Styles.font14bold,
+                      ),
+                    )
+                  : Center(
+                      child: Text('No items found', style: Styles.font14bold),
+                    );
+            },
           ),
         ),
       ],

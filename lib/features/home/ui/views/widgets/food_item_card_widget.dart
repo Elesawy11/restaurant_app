@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant_app/features/home/data/models/cart_item.dart';
 import 'package:restaurant_app/features/home/data/models/item_model.dart';
 import 'package:restaurant_app/features/home/ui/cubits/add_cart_item_cubit/add_cart_item_cubit.dart';
+import 'package:restaurant_app/features/home/ui/cubits/get_cart_item.dart/get_cart_tem_cubit.dart';
 
 import '../../../../../core/utils/color_manager.dart';
 import '../../../../../core/utils/spacer.dart';
@@ -85,11 +86,13 @@ class FoodItemCardWidget extends StatelessWidget {
               onTap: () {
                 context.read<AddCartItemCubit>().addItemToCart(
                   item: CartItem(
+                    id: item.id,
                     name: item.name,
                     price: item.price,
                     imageUrl: item.image,
                     quantity: 1,
                   ),
+                  list: context.read<GetCartITemCubit>().cartItems,
                 );
               },
               child: Container(

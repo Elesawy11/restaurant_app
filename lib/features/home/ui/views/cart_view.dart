@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:restaurant_app/core/utils/styles.dart';
-
-import '../../data/models/cart_item.dart';
+import 'package:restaurant_app/features/home/ui/cubits/get_cart_item.dart/get_cart_tem_cubit.dart';
 import 'widgets/cart_item_widget.dart';
 
 class MyCartPage extends StatefulWidget {
@@ -12,24 +12,7 @@ class MyCartPage extends StatefulWidget {
 }
 
 class _MyCartPageState extends State<MyCartPage> {
-  double totalPrice = 180.0;
-
-  List<CartItem> cartItems = [
-    CartItem(
-      name: "Appam & Stew - 2 nos",
-
-      price: 180.0,
-      quantity: 1,
-      imageUrl: "assets/images/appam_stew.jpg",
-    ),
-    CartItem(
-      name: "Appam & Stew - 2 nos",
-
-      price: 50,
-      quantity: 1,
-      imageUrl: "assets/images/appam_stew.jpg",
-    ),
-  ];
+  double totalPrice = 0;
 
   // void updateTotalPrice() {
   //   double total = 0;
@@ -67,52 +50,66 @@ class _MyCartPageState extends State<MyCartPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('My Cart: ', style: Styles.font18W600),
-          // Price Row
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Price',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
+    return BlocConsumer<GetCartITemCubit, GetCartITemState>(
+      listener: (context, state) {
+        totalPrice += context.read<GetCartITemCubit>().totalPrice;
+        // item.price * item.quantity;
+
+        if (state is GetCartITemSuccess) {
+          for (var item in state.items) {}
+        }
+      },
+      builder: (context, state) {
+        final cubit = context.read<GetCartITemCubit>();
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('My Cart: ', style: Styles.font18W600),
+            // Price Row
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Price',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                ),
-                Text(
-                  '₹ ${totalPrice.toStringAsFixed(0)}',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                  Text(
+                    '₹ ${cubit.totalPrice}',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: cartItems.length,
-              itemBuilder: (context, index) {
-                final item = cartItems[index];
-                return CartItemWidget(
-                  item: item,
-                  // decreaseQuantity: (){},
-                  // increaseQuantity: increaseQuantity(item.id),
-                  // removeItem: removeItem(item.id),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
+            state is GetCartITemSuccess
+                ? Expanded(
+                    child: ListView.builder(
+                      itemCount: state.items.length,
+                      itemBuilder: (context, index) {
+                        return CartItemWidget(
+                          item: state.items[index],
+                          // decreaseQuantity: (){},
+                          // increaseQuantity: increaseQuantity(item.id),
+                          // removeItem: removeItem(item.id),
+                        );
+                      },
+                    ),
+                  )
+                : state is GetCartITemLoading
+                ? const Center(child: CircularProgressIndicator())
+                : const SizedBox.shrink(),
+          ],
+        );
+      },
     );
   }
 }

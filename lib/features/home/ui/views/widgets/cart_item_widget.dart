@@ -35,14 +35,28 @@ class CartItemWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  item.name,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      item.name,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () => removeItem,
+                      icon: Icon(
+                        Icons.delete_outline,
+                        color: Colors.red[400],
+                        size: 24,
+                      ),
+                    ),
+                  ],
                 ),
+
                 verticalSpace(8),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -61,10 +75,6 @@ class CartItemWidget extends StatelessWidget {
                 ),
               ],
             ),
-          ),
-          IconButton(
-            onPressed: () => removeItem,
-            icon: Icon(Icons.delete_outline, color: Colors.red[400], size: 24),
           ),
         ],
       ),
