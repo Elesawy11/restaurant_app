@@ -1,25 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:restaurant_app/features/home/data/models/cart_item.dart';
+import 'package:restaurant_app/features/home/data/models/item_model.dart';
+import 'package:restaurant_app/features/home/ui/cubits/add_cart_item_cubit/add_cart_item_cubit.dart';
 
 import '../../../../../core/utils/color_manager.dart';
 import '../../../../../core/utils/spacer.dart';
 import '../../../../../core/utils/styles.dart';
 
 class FoodItemCardWidget extends StatelessWidget {
-  const FoodItemCardWidget({
-    super.key,
-    required this.imageUrl,
-    required this.title,
+  const FoodItemCardWidget({super.key, required this.item});
 
-    required this.price,
-    this.onTap,
-  });
-
-  final String imageUrl;
-  final String title;
-
-  final double price;
-  final VoidCallback? onTap;
+  final ItemModel item;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +28,7 @@ class FoodItemCardWidget extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
             child: Image.network(
-              imageUrl,
+              item.image,
               width: 80,
               height: 80,
               fit: BoxFit.cover,
@@ -63,14 +56,14 @@ class FoodItemCardWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  title,
+                  item.name,
                   style: Styles.font18W600.copyWith(color: Colors.white),
                 ),
                 verticalSpace(8),
 
                 // Price
                 Text(
-                  '₹ $price',
+                  '₹ ${item.price}',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -80,17 +73,35 @@ class FoodItemCardWidget extends StatelessWidget {
               ],
             ),
           ),
-          InkWell(
-            onTap: onTap,
-            child: Container(
-              width: 28.r,
-              height: 28.r,
-              decoration: BoxDecoration(
-                color: Colors.transparent,
-                border: Border.all(color: Colors.white54, width: 2),
-                borderRadius: BorderRadius.circular(8),
+          BlocListener<AddCartItemCubit, AddCartItemState>(
+            listener: (context, state) {
+              if (state is AddCartItemError) {
+                ScaffoldMessenger.of(
+                  context,
+                ).showSnackBar(SnackBar(content: Text(state.errorMessage)));
+              }
+            },
+            child: InkWell(
+              onTap: () {
+                context.read<AddCartItemCubit>().addItemToCart(
+                  item: CartItem(
+                    name: item.name,
+                    price: item.price,
+                    imageUrl: item.image,
+                    quantity: 1,
+                  ),
+                );
+              },
+              child: Container(
+                width: 28.r,
+                height: 28.r,
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  border: Border.all(color: Colors.white54, width: 2),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Icon(Icons.add, color: Colors.white, size: 18.r),
               ),
-              child: Icon(Icons.add, color: Colors.white, size: 18.r),
             ),
           ),
         ],

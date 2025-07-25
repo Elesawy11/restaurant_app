@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:restaurant_app/features/home/ui/cubits/add_cart_item_cubit/add_cart_item_cubit.dart';
 import 'package:restaurant_app/features/home/ui/cubits/get_items_cubit/get_items_cubit.dart';
 
 import '../../../../../core/utils/spacer.dart';
@@ -25,14 +26,12 @@ class HomeViewBodyWidget extends StatelessWidget {
                     ? ListView.builder(
                         itemCount: state.items.length,
                         itemBuilder: (context, index) {
-                          return FoodItemCardWidget(
-                            imageUrl: state.items[index].image,
-                            title: state.items[index].name,
-
-                            price: state.items[index].price,
-                            onTap: () {
-                              print('Add to cart pressed');
-                            },
+                          return BlocProvider(
+                            create: (context) => AddCartItemCubit(),
+                            child: FoodItemCardWidget(
+                              item: state.items[index],
+                              
+                            ),
                           );
                         },
                       )

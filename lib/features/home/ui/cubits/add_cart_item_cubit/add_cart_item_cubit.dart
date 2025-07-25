@@ -11,7 +11,7 @@ class AddCartItemCubit extends Cubit<AddCartItemState> {
   Future<void> addItemToCart({required CartItem item}) async {
     emit(AddCartItemLoading());
     try {
-      await firestore.collection('cart').add(item.toJson());
+      await firestore.collection('itemCart').add(item.toJson());
 
       emit(AddCartItemSuccess());
     } catch (e) {
