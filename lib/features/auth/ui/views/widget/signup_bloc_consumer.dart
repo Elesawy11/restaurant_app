@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant_app/core/utils/navigation.dart';
-
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/custom_elevated_button.dart';
-import '../../../../home/views/home_view.dart';
+import '../../../../home/ui/views/home_view.dart';
 import '../../cubits/signup_cubit/sign_up_cubit.dart';
 
 class SignupBlocConsumer extends StatelessWidget {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/utils/color_manager.dart';
-import '../../../../core/utils/spacer.dart';
-import '../../../../core/utils/styles.dart';
+import '../../../../../core/utils/color_manager.dart';
+import '../../../../../core/utils/spacer.dart';
+import '../../../../../core/utils/styles.dart';
 
 class FoodItemCardWidget extends StatelessWidget {
   const FoodItemCardWidget({
@@ -18,7 +18,7 @@ class FoodItemCardWidget extends StatelessWidget {
   final String imageUrl;
   final String title;
 
-  final int price;
+  final double price;
   final VoidCallback? onTap;
 
   @override

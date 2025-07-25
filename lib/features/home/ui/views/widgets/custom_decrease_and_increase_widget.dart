@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../data/models/cart_item.dart';
+import '../../../data/models/cart_item.dart';
 
 class CustomDecreaseAndIncreaseWidget extends StatelessWidget {
   const CustomDecreaseAndIncreaseWidget({

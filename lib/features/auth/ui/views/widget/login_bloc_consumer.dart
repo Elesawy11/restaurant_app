@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant_app/core/utils/navigation.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/custom_elevated_button.dart';
-import '../../../../home/views/home_view.dart';
+import '../../../../home/ui/views/home_view.dart';
 import '../../cubits/login_cubit/login_cubit.dart';
 
 class LoginBlocConsumer extends StatelessWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/utils/spacer.dart';
-import '../../../../core/utils/styles.dart';
-import '../../data/models/cart_item.dart';
+import '../../../../../core/utils/spacer.dart';
+import '../../../../../core/utils/styles.dart';
+import '../../../data/models/cart_item.dart';
 import 'cart_item_image_widget.dart';
 import 'custom_decrease_and_increase_widget.dart';
 

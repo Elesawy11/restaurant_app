@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant_app/core/utils/styles.dart';
-import 'package:restaurant_app/features/home/views/cart_view.dart';
 import 'widgets/home_view_body_widget.dart';
 
 class HomeView extends StatefulWidget {
@@ -27,7 +26,10 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Welcome !!', style: Styles.font14bold)),
+      appBar: AppBar(
+        title: Text('Welcome !!', style: Styles.font14bold),
+        backgroundColor: Colors.black54,
+      ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 8.w),
         child: pages.elementAt(selectedIndex),

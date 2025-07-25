@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../data/models/cart_item.dart';
+import '../../../data/models/cart_item.dart';
 
 class CartItemImageWidget extends StatelessWidget {
   const CartItemImageWidget({super.key, required this.item});
