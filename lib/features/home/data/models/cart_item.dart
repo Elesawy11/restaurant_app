@@ -1,13 +1,13 @@
 class CartItem {
   final String name;
   final double price;
-  int? quantity;
+  final int quantity;
   final String imageUrl;
 
   CartItem({
     required this.name,
     required this.price,
-    this.quantity,
+    required this.quantity,
     required this.imageUrl,
   });
 

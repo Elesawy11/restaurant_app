@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant_app/core/utils/styles.dart';
+import 'cart_view.dart';
 import 'widgets/home_view_body_widget.dart';
 
 class HomeView extends StatefulWidget {
@@ -14,7 +15,7 @@ class _HomeViewState extends State<HomeView> {
   int selectedIndex = 0;
   static List<Widget> pages = <Widget>[
     const HomeViewBodyWidget(),
-    // const MyCartPage(),
+    const MyCartPage(),
   ];
 
   void onItemTapped(int index) {
