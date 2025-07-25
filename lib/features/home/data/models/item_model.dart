@@ -14,4 +14,7 @@ class ItemModel {
       image: json['image'],
     );
   }
+  Map<String, dynamic> toJson() {
+    return {'name': name, 'price': price, 'image': image};
+  }
 }
