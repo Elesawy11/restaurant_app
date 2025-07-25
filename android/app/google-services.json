@@ -1,0 +1,126 @@
+{
+  "project_info": {
+    "project_number": "158153819260",
+    "project_id": "fruit-market-5bc73",
+    "storage_bucket": "fruit-market-5bc73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158153819260:android:c76bbb766f1bad21d5f5f9",
+        "android_client_info": {
+          "package_name": "com.example.fruit_marke"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "158153819260-1sj1sfhrb97lc0amqtf8kn1q8qkejmia.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa0GcQFxeudlyk1ydtGSweDuvKWRUo0I4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "158153819260-1sj1sfhrb97lc0amqtf8kn1q8qkejmia.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "158153819260-nvuntm7a3fia0ua3tae5in08luhgtjlg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fruitMarket"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158153819260:android:b8544997bd83735ad5f5f9",
+        "android_client_info": {
+          "package_name": "com.example.fruit_market"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "158153819260-lniu9le3sdt2qa0bm3ju0v954mdcmra0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fruit_market",
+            "certificate_hash": "405da38bd009b134898d95aeb53bb7488d8d3d67"
+          }
+        },
+        {
+          "client_id": "158153819260-1sj1sfhrb97lc0amqtf8kn1q8qkejmia.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa0GcQFxeudlyk1ydtGSweDuvKWRUo0I4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "158153819260-1sj1sfhrb97lc0amqtf8kn1q8qkejmia.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "158153819260-nvuntm7a3fia0ua3tae5in08luhgtjlg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fruitMarket"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158153819260:android:cea7ce70fe08afdfd5f5f9",
+        "android_client_info": {
+          "package_name": "com.example.restaurant_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "158153819260-1sj1sfhrb97lc0amqtf8kn1q8qkejmia.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa0GcQFxeudlyk1ydtGSweDuvKWRUo0I4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "158153819260-1sj1sfhrb97lc0amqtf8kn1q8qkejmia.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "158153819260-nvuntm7a3fia0ua3tae5in08luhgtjlg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fruitMarket"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

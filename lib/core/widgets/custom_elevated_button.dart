@@ -4,13 +4,15 @@ import '../utils/styles.dart';
 class CustomElevatedButton extends StatelessWidget {
   const CustomElevatedButton({
     super.key,
-    required this.text,
+     this.text,
     this.onPressed,
     this.padding,
+    this.child,
   });
-  final String text;
+  final String? text;
   final VoidCallback? onPressed;
   final EdgeInsetsGeometry? padding;
+  final Widget? child;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -19,7 +21,12 @@ class CustomElevatedButton extends StatelessWidget {
         padding:
             padding ?? const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
       ),
-      child: Text(text, style: Styles.font18W600.copyWith(color: Colors.white)),
+      child:
+          child ??
+          Text(
+            text ?? '',
+            style: Styles.font18W600.copyWith(color: Colors.white),
+          ),
     );
   }
 }

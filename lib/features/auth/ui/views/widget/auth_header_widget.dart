@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/spacer.dart';
-import '../../../../core/utils/styles.dart';
+import '../../../../../core/utils/spacer.dart';
+import '../../../../../core/utils/styles.dart';
 
 class AuthHeaderWidget extends StatelessWidget {
   const AuthHeaderWidget({

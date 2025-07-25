@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../core/utils/spacer.dart';
-import '../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../../core/utils/spacer.dart';
+import '../../../../../core/widgets/custom_text_form_field.dart';
 
 class CustomAuthTextFieldWidget extends StatelessWidget {
   const CustomAuthTextFieldWidget({

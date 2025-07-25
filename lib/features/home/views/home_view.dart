@@ -15,7 +15,7 @@ class _HomeViewState extends State<HomeView> {
   int selectedIndex = 0;
   static List<Widget> pages = <Widget>[
     const HomeViewBodyWidget(),
-    const MyCartPage(),
+    // const MyCartPage(),
   ];
 
   void onItemTapped(int index) {

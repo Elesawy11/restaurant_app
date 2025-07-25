@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_app/core/utils/assets.dart';
 import 'package:restaurant_app/core/utils/navigation.dart';
-import 'package:restaurant_app/features/auth/views/login_view.dart';
+import 'package:restaurant_app/features/auth/ui/views/login_view.dart';
 import '../../../core/utils/styles.dart';
 import '../../../core/widgets/custom_elevated_button.dart';
 
